@@ -1,7 +1,4 @@
-
-<html lang="en">
-<head>
-  <<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -24,7 +21,7 @@
       --surface: rgba(15,23,42,0.9);
       --text-main: #f9fafb;
       --text-muted: #cbd5e1;
-      --border-soft: rgba(148,163,184,0.4);
+      --border-soft: rgba(148,163,184,0.42);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,8 +56,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px;
       gap: 16px;
+      margin-bottom: 30px;
     }
 
     .logo-row {
@@ -121,22 +118,20 @@
       font-size: 40px;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-
-    @media (min-width: 900px) { h1 { font-size: 48px; } }
 
     .subtitle {
       font-size: 16px;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
+      line-height: 1.5;
+      margin-bottom: 18px;
     }
 
     .beta-note {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .beta-note strong { color: var(--text-main); }
 
@@ -162,9 +157,9 @@
       text-decoration: none;
       width: 100%;
       justify-content: center;
-      border: 1px solid rgba(148,163,184,0.6);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border: 1px solid rgba(148,163,184,0.65);
       box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
       font-size: 13px;
     }
 
@@ -222,8 +217,8 @@
 
     .benefit-title {
       font-size: 13px;
-      color: #e5e7eb;
       font-weight: 500;
+      color: #e5e7eb;
     }
 
     .benefit-text {
@@ -232,7 +227,7 @@
       margin-top: 4px;
     }
 
-    /* Phone mockup with screenshot */
+    /* Phone mockup */
     .hero-visual {
       display: flex;
       justify-content: center;
@@ -274,6 +269,7 @@
       display: block;
     }
 
+    /* Legal footer */
     .legal-footer {
       margin-top: 32px;
       padding-top: 16px;
@@ -300,6 +296,40 @@
       text-decoration: underline;
       color: #ffffff;
     }
+
+    /* Mobile adjustments */
+    .desktop-only { display: block; }
+
+    @media (max-width: 768px) {
+      .surface {
+        padding: 24px 16px 28px;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        margin-bottom: 14px;
+      }
+
+      .beta-note.desktop-only,
+      .hint.desktop-only,
+      .benefits.desktop-only {
+        display: none;
+      }
+
+      .hero {
+        gap: 20px;
+      }
+
+      /* no big mockup on small screens */
+      .hero-visual {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -308,8 +338,10 @@
     <div class="surface">
       <header>
         <div class="logo-row">
-          <img src="https://raw.githubusercontent.com/thomaslabrd/landing.SetYourCoaching/main/logo%20simple.jpg"
-               alt="SetYourCoaching logo" />
+          <img
+            src="https://raw.githubusercontent.com/thomaslabrd/landing.SetYourCoaching/main/logo%20simple.jpg"
+            alt="SetYourCoaching logo"
+          />
           <div class="logo-text">SetYourCoaching</div>
         </div>
         <div class="badge-beta">Open beta – Free access</div>
@@ -322,54 +354,55 @@
 
           <p class="subtitle">
             SetYourCoaching brings together your clients, sessions, billing and messaging
-            in a single, modern interface. Less admin – more time coaching.
+            in one clean interface. Less admin – more time coaching.
           </p>
 
-          <p class="beta-note">
-            <strong>Currently in beta.</strong> Download the app and be among the first
+          <p class="beta-note desktop-only">
+            <strong>Currently in beta.</strong> Install the app and be among the first
             independent coaches to shape the platform.
           </p>
 
           <div class="store-buttons">
-            <!-- Replace the href values with your real links -->
+            <!-- TODO: replace with your real iOS/TestFlight link -->
             <a
               class="store-badge apple"
-              href="https://your-ios-download-link"
+              href="https://your-ios-link-here"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div class="store-icon"></div>
               <div>
                 <span class="store-top">Download on the</span><br />
-                <span class="store-bottom">App Store (TestFlight)</span>
+                <span class="store-bottom">App Store / TestFlight</span>
               </div>
             </a>
 
+            <!-- TODO: replace with your real .apk download link from Expo -->
             <a
               class="store-badge google"
-              href="https://expo.dev/accounts/thomas.labrd/projects/syc-mobile-app/builds/15b59366-a6e2-4a20-b5f7-beb35bcef3f9"
+              href="https://expo.dev/artifacts/eas/YOUR-ANDROID-APK-LINK.apk"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div class="store-icon">▶</div>
               <div>
                 <span class="store-top">Get it on</span><br />
-                <span class="store-bottom">Google Play / APK</span>
+                <span class="store-bottom">Android (APK)</span>
               </div>
             </a>
           </div>
 
-          <p class="hint">
-            During the beta, access is free. You can invite your own clients and use it
-            in real conditions while we keep improving the product.
+          <p class="hint desktop-only">
+            During the beta, access is free. You can invite your own clients and
+            use SetYourCoaching in real conditions while we keep improving the product.
           </p>
 
-          <div class="benefits">
+          <div class="benefits desktop-only">
             <div>
-              <div class="benefit-title">Clear planning</div>
+              <div class="benefit-title">Clear schedule</div>
               <div class="benefit-text">
-                In-person, online or autonomous sessions – all in a single calendar built
-                for coaching.
+                In-person, online or autonomous sessions – all in a calendar designed
+                specifically for coaching.
               </div>
             </div>
             <div>
@@ -381,7 +414,7 @@
             <div>
               <div class="benefit-title">Billing ready</div>
               <div class="benefit-text">
-                Designed to plug into Stripe to automate invoices and subscriptions.
+                Built to plug into Stripe to automate invoices and subscriptions later on.
               </div>
             </div>
           </div>
@@ -390,10 +423,10 @@
         <aside class="hero-visual">
           <div class="device-frame" aria-hidden="true">
             <div class="device-inner">
-              <!-- Screenshot from your repo -->
+              <!-- Screenshot file: upload phone-planning.png at repo root -->
               <img
                 src="phone-planning.png"
-                alt="Preview of SetYourCoaching mobile app"
+                alt="Preview of the SetYourCoaching mobile app"
                 class="phone-screen"
               />
             </div>
@@ -414,5 +447,8 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+</body>
+</html>
+
 </body>
 </html>
