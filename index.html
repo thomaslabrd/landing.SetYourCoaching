@@ -3,452 +3,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SetYourCoaching – The all-in-one app for independent coaches</title>
-  <meta
-    name="description"
-    content="SetYourCoaching is the all-in-one platform for independent coaches. Manage clients, sessions, billing and messaging in one clean interface."
-  />
-  <link
-    rel="icon"
-    href="https://raw.githubusercontent.com/thomaslabrd/landing.SetYourCoaching/main/logo%20simple.jpg"
-  />
+  <title>SetYourCoaching – Download the App</title>
 
   <style>
     :root {
-      --primary: #3b82f6;
-      --primary-dark: #1d4ed8;
-      --bg-page: #020617;
-      --surface: rgba(15,23,42,0.9);
-      --text-main: #f9fafb;
-      --text-muted: #cbd5e1;
-      --border-soft: rgba(148,163,184,0.42);
+      --blue-start: #3b82f6;
+      --blue-end: #1d4ed8;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --bg: #ffffff;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: system-ui, -apple-system, "SF Pro Text", "Segoe UI", sans-serif;
-      min-height: 100vh;
+      background: var(--bg);
+      font-family: system-ui, -apple-system, "SF Pro Display", sans-serif;
       display: flex;
       justify-content: center;
-      padding: 24px 12px;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(59,130,246,0.35), transparent 60%),
-        radial-gradient(circle at 100% 100%, rgba(37,99,235,0.50), transparent 60%),
-        var(--bg-page);
-      color: var(--text-main);
+      padding: 32px 16px;
+      color: var(--text-dark);
     }
 
-    .shell { width: 100%; max-width: 1120px; }
-
-    .surface {
-      background: var(--surface);
-      border-radius: 28px;
-      border: 1px solid var(--border-soft);
-      padding: 32px 22px 36px;
-      box-shadow:
-        0 28px 60px rgba(0,0,0,0.55),
-        0 0 0 1px rgba(15,23,42,0.8);
-      backdrop-filter: blur(22px);
+    .container {
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-
-    .logo-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-row img {
-      height: 40px;
-      border-radius: 9px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
-    }
-
-    .logo-text {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #e5e7eb;
-    }
-
-    .badge-beta {
-      font-size: 12px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(59,130,246,0.18);
-      border: 1px solid rgba(96,165,250,0.7);
-      color: #93c5fd;
-      white-space: nowrap;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column-reverse;
-      gap: 36px;
-    }
-
-    @media (min-width: 900px) {
-      .hero {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-
-    .hero-content { max-width: 520px; }
-
-    .eyebrow {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+    .logo {
+      width: 70px;
+      border-radius: 14px;
+      margin: 0 auto 18px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
     }
 
     h1 {
-      font-size: 40px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
+      font-size: 32px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--blue-start), var(--blue-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
     }
 
-    .subtitle {
-      font-size: 16px;
+    p.subtitle {
+      font-size: 15px;
       color: var(--text-muted);
+      margin-bottom: 32px;
       line-height: 1.5;
-      margin-bottom: 18px;
     }
 
-    .beta-note {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-    .beta-note strong { color: var(--text-main); }
-
-    .store-buttons {
+    /* Buttons */
+    .download-buttons {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 12px;
+      margin-bottom: 40px;
     }
 
-    @media (min-width: 520px) {
-      .store-buttons { flex-direction: row; }
-    }
-
-    .store-badge {
-      display: inline-flex;
+    .btn {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 20px;
       border-radius: 999px;
-      background: #000;
-      color: #f9fafb;
-      text-decoration: none;
-      width: 100%;
-      justify-content: center;
-      border: 1px solid rgba(148,163,184,0.65);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      font-size: 13px;
-    }
-
-    .store-badge span.store-top {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      opacity: 0.7;
-    }
-
-    .store-badge span.store-bottom {
+      background: var(--text-dark);
+      color: white;
       font-size: 15px;
-      font-weight: 600;
-    }
-
-    .store-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: radial-gradient(circle at 0% 0%, #f9fafb, #6b7280);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-
-    .store-badge.google .store-icon {
-      background: radial-gradient(circle at 0% 0%, #22c55e, #3b82f6, #f97316);
-      font-size: 18px;
-    }
-
-    .store-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.8);
-    }
-
-    .hint {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 22px;
-    }
-
-    .benefits {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    @media (min-width: 700px) {
-      .benefits {
-        grid-template-columns: repeat(3, minmax(0,1fr));
-        max-width: 520px;
-      }
-    }
-
-    .benefit-title {
-      font-size: 13px;
       font-weight: 500;
-      color: #e5e7eb;
+      text-decoration: none;
+      transition: 0.2s;
     }
 
-    .benefit-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 4px;
+    .btn:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
     }
 
-    /* Phone mockup */
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex: 1;
+    .btn span.small {
+      font-size: 11px;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    .device-frame {
-      width: 270px;
-      max-width: 80vw;
-      aspect-ratio: 9/19;
-      padding: 10px;
-      border-radius: 32px;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(59,130,246,0.40), transparent 45%),
-        radial-gradient(circle at 100% 100%, rgba(37,99,235,0.55), transparent 50%),
-        #020617;
-      border: 1px solid rgba(148,163,184,0.7);
-      box-shadow:
-        0 32px 70px rgba(0,0,0,0.65),
-        inset 0 0 0 1px rgba(15,23,42,0.8);
-      overflow: hidden;
-      display: flex;
-      align-items: stretch;
-    }
-
-    .device-inner {
-      background: #000;
-      border-radius: 26px;
-      overflow: hidden;
+    /* Optional phone screenshot */
+    .phone {
       width: 100%;
-      position: relative;
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 300px;
+      margin: 0 auto;
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
       display: block;
     }
 
-    /* Legal footer */
-    .legal-footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(148,163,184,0.4);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    footer {
+      margin-top: 40px;
       font-size: 12px;
       color: var(--text-muted);
-    }
-
-    .legal-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .legal-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .legal-links a:hover {
-      text-decoration: underline;
-      color: #ffffff;
-    }
-
-    /* Mobile adjustments */
-    .desktop-only { display: block; }
-
-    @media (max-width: 768px) {
-      .surface {
-        padding: 24px 16px 28px;
-      }
-
-      h1 {
-        font-size: 28px;
-        line-height: 1.2;
-      }
-
-      .subtitle {
-        font-size: 14px;
-        margin-bottom: 14px;
-      }
-
-      .beta-note.desktop-only,
-      .hint.desktop-only,
-      .benefits.desktop-only {
-        display: none;
-      }
-
-      .hero {
-        gap: 20px;
-      }
-
-      /* no big mockup on small screens */
-      .hero-visual {
-        display: none;
-      }
     }
   </style>
 </head>
 
 <body>
-  <div class="shell">
-    <div class="surface">
-      <header>
-        <div class="logo-row">
-          <img
-            src="https://raw.githubusercontent.com/thomaslabrd/landing.SetYourCoaching/main/logo%20simple.jpg"
-            alt="SetYourCoaching logo"
-          />
-          <div class="logo-text">SetYourCoaching</div>
+  <div class="container">
+
+    <img 
+      src="https://raw.githubusercontent.com/thomaslabrd/landing.SetYourCoaching/main/logo%20simple.jpg"
+      class="logo"
+      alt="SetYourCoaching logo"
+    />
+
+    <h1>SetYourCoaching</h1>
+
+    <p class="subtitle">
+      The all-in-one app for independent coaches.<br>
+      Available now in open beta.
+    </p>
+
+    <div class="download-buttons">
+      <!-- iOS LINK -->
+      <a href="https://your-ios-link-here" class="btn">
+        <div>
+          <span class="small">Download on</span><br>
+          App Store / TestFlight
         </div>
-        <div class="badge-beta">Open beta – Free access</div>
-      </header>
+      </a>
 
-      <main class="hero">
-        <section class="hero-content">
-          <div class="eyebrow">For independent coaches</div>
-          <h1>All your coaching in one single app.</h1>
-
-          <p class="subtitle">
-            SetYourCoaching brings together your clients, sessions, billing and messaging
-            in one clean interface. Less admin – more time coaching.
-          </p>
-
-          <p class="beta-note desktop-only">
-            <strong>Currently in beta.</strong> Install the app and be among the first
-            independent coaches to shape the platform.
-          </p>
-
-          <div class="store-buttons">
-            <!-- TODO: replace with your real iOS/TestFlight link -->
-            <a
-              class="store-badge apple"
-              href="https://your-ios-link-here"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="store-icon"></div>
-              <div>
-                <span class="store-top">Download on the</span><br />
-                <span class="store-bottom">App Store / TestFlight</span>
-              </div>
-            </a>
-
-            <!-- TODO: replace with your real .apk download link from Expo -->
-            <a
-              class="store-badge google"
-              href="https://expo.dev/artifacts/eas/YOUR-ANDROID-APK-LINK.apk"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="store-icon">▶</div>
-              <div>
-                <span class="store-top">Get it on</span><br />
-                <span class="store-bottom">Android (APK)</span>
-              </div>
-            </a>
-          </div>
-
-          <p class="hint desktop-only">
-            During the beta, access is free. You can invite your own clients and
-            use SetYourCoaching in real conditions while we keep improving the product.
-          </p>
-
-          <div class="benefits desktop-only">
-            <div>
-              <div class="benefit-title">Clear schedule</div>
-              <div class="benefit-text">
-                In-person, online or autonomous sessions – all in a calendar designed
-                specifically for coaching.
-              </div>
-            </div>
-            <div>
-              <div class="benefit-title">Clients in one place</div>
-              <div class="benefit-text">
-                Full client profiles, session history and goals so you never lose track.
-              </div>
-            </div>
-            <div>
-              <div class="benefit-title">Billing ready</div>
-              <div class="benefit-text">
-                Built to plug into Stripe to automate invoices and subscriptions later on.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <aside class="hero-visual">
-          <div class="device-frame" aria-hidden="true">
-            <div class="device-inner">
-              <!-- Screenshot file: upload phone-planning.png at repo root -->
-              <img
-                src="phone-planning.png"
-                alt="Preview of the SetYourCoaching mobile app"
-                class="phone-screen"
-              />
-            </div>
-          </div>
-        </aside>
-      </main>
-
-      <footer class="legal-footer">
-        <div>© <span id="year"></span> SetYourCoaching — Independent coaches</div>
-        <div class="legal-links">
-          <a href="/legal/mentions-legales.html">Legal notice (FR)</a>
-          <a href="/legal/politique-confidentialite.html">Privacy policy (FR)</a>
+      <!-- ANDROID APK LINK -->
+      <a href="https://expo.dev/artifacts/eas/YOUR-APK.apk" class="btn">
+        <div>
+          <span class="small">Download on</span><br>
+          Android (APK)
         </div>
-      </footer>
+      </a>
     </div>
+
+    <!-- Optional phone screenshot -->
+    <img src="phone-planning.png" class="phone" alt="App preview">
+
+    <footer>
+      © <span id="year"></span> SetYourCoaching — Independent coaches
+    </footer>
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-</body>
-</html>
-
 </body>
 </html>
