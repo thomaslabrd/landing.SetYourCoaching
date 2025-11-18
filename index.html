@@ -1,9 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><span translate="no">SetYourCoaching</span>
- – Download the app</title>
+  <title>SetYourCoaching – Download the app</title>
 
   <style>
     :root {
@@ -11,14 +11,17 @@
       --blue-end: #1d4ed8;
       --text-dark: #0f172a;
       --text-muted: #64748b;
-      --bg: #ffffff;
+      --bg: #f3f4f6;
       --card-border: #e2e8f0;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(59,130,246,0.12), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(37,99,235,0.10), transparent 55%),
+        var(--bg);
       font-family: system-ui, -apple-system, "SF Pro Display", sans-serif;
       min-height: 100vh;
       display: flex;
@@ -39,20 +42,21 @@
       border-radius: 32px;
       border: 1px solid var(--card-border);
       box-shadow:
-        0 24px 60px rgba(15, 23, 42, 0.12),
-        0 0 0 1px rgba(148, 163, 184, 0.2);
-      padding: 26px 20px 26px;
+        0 28px 80px rgba(15, 23, 42, 0.18),
+        0 0 0 1px rgba(148, 163, 184, 0.25);
+      padding: 28px 20px 26px;
       overflow: hidden;
     }
 
-    /* bandeau dégradé derrière la carte */
+    /* halo bleu derrière la carte */
     .card::before {
       content: "";
       position: absolute;
       inset: -120px -40px auto;
-      height: 180px;
-      background: radial-gradient(circle at 0% 0%, rgba(59,130,246,0.16), transparent 60%),
-                  radial-gradient(circle at 100% 0%, rgba(37,99,235,0.18), transparent 55%);
+      height: 190px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(59,130,246,0.18), transparent 60%),
+        radial-gradient(circle at 88% 0%, rgba(37,99,235,0.20), transparent 55%);
       pointer-events: none;
       z-index: -1;
     }
@@ -60,17 +64,17 @@
     .content {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 28px;
     }
 
     @media (min-width: 880px) {
       .card {
-        padding: 32px 32px 30px;
+        padding: 34px 32px 30px;
       }
       .content {
         flex-direction: row;
         align-items: center;
-        gap: 36px;
+        gap: 40px;
       }
     }
 
@@ -101,6 +105,8 @@
       text-transform: uppercase;
       color: var(--text-muted);
     }
+
+    .logo-name[translate="no"] { }
 
     .badge {
       display: inline-flex;
@@ -135,14 +141,14 @@
     .subtitle {
       font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       line-height: 1.6;
     }
 
     .sub-benefits {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .sub-benefits b {
@@ -150,48 +156,18 @@
       font-weight: 600;
     }
 
-    .download-buttons {
+    /* Boutons de store */
+    .store-row {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-bottom: 10px;
     }
 
-    @media (min-width: 520px) {
-      .download-buttons {
-        flex-direction: row;
-      }
-    }
-
-    .btn-store {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: #0f172a;
-      color: #ffffff;
-      text-decoration: none;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .btn-store span.small {
+    .store-row a img {
+      height: 48px;
       display: block;
-      font-size: 11px;
-      opacity: 0.8;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .btn-store:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.45);
-      opacity: 0.96;
+      filter: drop-shadow(0 6px 14px rgba(15,23,42,0.25));
     }
 
     .hint {
@@ -208,14 +184,16 @@
     }
 
     .phone-frame {
-      width: 260px;
+      width: 280px;
       max-width: 80vw;
       border-radius: 32px;
       padding: 10px;
-      background: linear-gradient(145deg, rgba(15,23,42,0.9), rgba(15,23,42,0.96));
+      background:
+        radial-gradient(circle at 0% 0%, rgba(59,130,246,0.45), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(15,23,42,0.95), rgba(15,23,42,1));
       box-shadow:
-        0 24px 50px rgba(15,23,42,0.32),
-        0 0 0 1px rgba(148,163,184,0.4);
+        0 24px 60px rgba(15,23,42,0.4),
+        0 0 0 1px rgba(15,23,42,0.7);
     }
 
     .phone-inner {
@@ -254,12 +232,22 @@
       }
       .card {
         border-radius: 24px;
-        padding: 20px 18px 22px;
+        padding: 22px 18px 22px;
       }
       h1 { font-size: 26px; }
       .subtitle { font-size: 14px; }
       .right {
-        margin-top: 10px;
+        margin-top: 6px;
+      }
+      .store-row {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .store-row {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -277,43 +265,43 @@
               alt="SetYourCoaching logo"
               class="logo"
             />
-            <div class="logo-name">SetYourCoaching</div>
+            <div class="logo-name" translate="no">SetYourCoaching</div>
           </div>
 
           <div class="badge">
             <span class="badge-dot"></span>
-            Open beta 
+            Open beta
           </div>
 
           <h1>All your coaching in one app.</h1>
-          
 
           <p class="subtitle">
-           Plan your tasks and sessions, provide personalized follow-ups to your clients, and manage your entire coaching business from one single platform.
+            Plan your tasks and sessions, provide personalized follow-ups to your clients,
+            and manage your entire coaching business from one single platform.
           </p>
 
           <p class="sub-benefits">
-           Look professional, stay organized and deliver a better client experience — without drowning in admin work.
+            Look professional, stay organized and deliver a better client experience —
+            without drowning in admin work.
           </p>
 
-          <div class="download-buttons">
-            <!-- TODO: replace with your real iOS / TestFlight link -->
-          <a href="YOUR_IOS_LINK_HERE" target="_blank" rel="noopener noreferrer">
-  <img 
-    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
-    alt="Download on the App Store" 
-    style="height: 48px;"
-  >
-</a>
+          <div class="store-row">
+            <!-- iOS – remplace YOUR_IOS_LINK_HERE -->
+            <a href="YOUR_IOS_LINK_HERE" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+              />
+            </a>
 
-        <a href="YOUR_ANDROID_LINK_HERE" target="_blank" rel="noopener noreferrer">
-  <img 
-    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-    alt="Get it on Google Play" 
-    style="height: 48px;"
-  >
-</a>
-
+            <!-- Android – remplace YOUR_ANDROID_LINK_HERE -->
+            <a href="YOUR_ANDROID_LINK_HERE" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Get it on Google Play"
+              />
+            </a>
+          </div>
 
           <div class="hint">
             Beta access is free. You can already invite your own clients and test it
@@ -325,7 +313,6 @@
         <div class="right">
           <div class="phone-frame">
             <div class="phone-inner">
-              <!-- Mets ici ton screenshot (sans infos sensibles) -->
               <img
                 src="https://github.com/thomaslabrd/landing.SetYourCoaching/blob/main/Capture%20d'%C3%A9cran%202025-11-18%20102506.png?raw=true"
                 alt="Preview of SetYourCoaching app"
@@ -337,7 +324,7 @@
     </div>
 
     <footer>
-      © <span id="year"></span> SetYourCoaching
+      © <span id="year"></span> SetYourCoaching ·
       <a href="/legal/mentions-legales.html">Legal notice</a> ·
       <a href="/legal/politique-confidentialite.html">Privacy policy</a>
     </footer>
