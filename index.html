@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SetYourCoaching – Download the App</title>
+  <title>SetYourCoaching – Download the app</title>
 
   <style>
     :root {
@@ -12,6 +11,7 @@
       --text-dark: #0f172a;
       --text-muted: #64748b;
       --bg: #ffffff;
+      --card-border: #e2e8f0;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,133 +19,336 @@
     body {
       background: var(--bg);
       font-family: system-ui, -apple-system, "SF Pro Display", sans-serif;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
+      align-items: center;
       padding: 32px 16px;
       color: var(--text-dark);
     }
 
-    .container {
-      text-align: center;
-      max-width: 420px;
+    .shell {
       width: 100%;
+      max-width: 980px;
+    }
+
+    .card {
+      position: relative;
+      background: #ffffff;
+      border-radius: 32px;
+      border: 1px solid var(--card-border);
+      box-shadow:
+        0 24px 60px rgba(15, 23, 42, 0.12),
+        0 0 0 1px rgba(148, 163, 184, 0.2);
+      padding: 26px 20px 26px;
+      overflow: hidden;
+    }
+
+    /* bandeau dégradé derrière la carte */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -120px -40px auto;
+      height: 180px;
+      background: radial-gradient(circle at 0% 0%, rgba(59,130,246,0.16), transparent 60%),
+                  radial-gradient(circle at 100% 0%, rgba(37,99,235,0.18), transparent 55%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    @media (min-width: 880px) {
+      .card {
+        padding: 32px 32px 30px;
+      }
+      .content {
+        flex-direction: row;
+        align-items: center;
+        gap: 36px;
+      }
+    }
+
+    .left {
+      flex: 1;
+      text-align: left;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
     .logo {
-      width: 70px;
-      border-radius: 14px;
-      margin: 0 auto 18px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.25);
+      object-fit: cover;
+    }
+
+    .logo-name {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.06);
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
     }
 
     h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 30px;
+      line-height: 1.15;
+      margin-bottom: 8px;
       background: linear-gradient(90deg, var(--blue-start), var(--blue-end));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
     }
 
-    p.subtitle {
+    .subtitle {
       font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 32px;
-      line-height: 1.5;
+      margin-bottom: 12px;
+      line-height: 1.6;
     }
 
-    /* Buttons */
+    .sub-benefits {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .sub-benefits b {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
     .download-buttons {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 40px;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
-    .btn {
+    @media (min-width: 520px) {
+      .download-buttons {
+        flex-direction: row;
+      }
+    }
+
+    .btn-store {
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 14px 20px;
+      gap: 10px;
+      padding: 12px 18px;
       border-radius: 999px;
-      background: var(--text-dark);
-      color: white;
-      font-size: 15px;
-      font-weight: 500;
+      background: #0f172a;
+      color: #ffffff;
       text-decoration: none;
-      transition: 0.2s;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    .btn:hover {
-      opacity: 0.85;
-      transform: translateY(-2px);
-    }
-
-    .btn span.small {
+    .btn-store span.small {
+      display: block;
       font-size: 11px;
       opacity: 0.8;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    /* Optional phone screenshot */
-    .phone {
+    .btn-store:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.45);
+      opacity: 0.96;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Bloc téléphone */
+    .right {
+      flex: 0.95;
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-frame {
+      width: 260px;
+      max-width: 80vw;
+      border-radius: 32px;
+      padding: 10px;
+      background: linear-gradient(145deg, rgba(15,23,42,0.9), rgba(15,23,42,0.96));
+      box-shadow:
+        0 24px 50px rgba(15,23,42,0.32),
+        0 0 0 1px rgba(148,163,184,0.4);
+    }
+
+    .phone-inner {
+      border-radius: 26px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .phone-inner img {
       width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-      border-radius: 28px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
       display: block;
+      object-fit: cover;
     }
 
     footer {
-      margin-top: 40px;
-      font-size: 12px;
+      margin-top: 18px;
+      font-size: 11px;
+      text-align: center;
       color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile */
+    @media (max-width: 879px) {
+      body {
+        align-items: flex-start;
+      }
+      .card {
+        border-radius: 24px;
+        padding: 20px 18px 22px;
+      }
+      h1 { font-size: 26px; }
+      .subtitle { font-size: 14px; }
+      .right {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="shell">
+    <div class="card">
+      <div class="content">
+        <!-- LEFT SIDE -->
+        <div class="left">
+          <div class="logo-row">
+            <img
+              src="https://raw.githubusercontent.com/thomaslabrd/landing.SetYourCoaching/main/logo%20simple.jpg"
+              alt="SetYourCoaching logo"
+              class="logo"
+            />
+            <div class="logo-name">SetYourCoaching</div>
+          </div>
 
-    <img 
-      src="https://raw.githubusercontent.com/thomaslabrd/landing.SetYourCoaching/main/logo%20simple.jpg"
-      class="logo"
-      alt="SetYourCoaching logo"
-    />
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Open beta for independent coaches
+          </div>
 
-    <h1>SetYourCoaching</h1>
+          <h1>All your coaching in one app.</h1>
 
-    <p class="subtitle">
-      The all-in-one app for independent coaches.<br>
-      Available now in open beta.
-    </p>
+          <p class="subtitle">
+            Plan sessions, follow up with clients and keep your business organised
+            from your phone.
+          </p>
 
-    <div class="download-buttons">
-      <!-- iOS LINK -->
-      <a href="https://your-ios-link-here" class="btn">
-        <div>
-          <span class="small">Download on</span><br>
-          App Store / TestFlight
+          <p class="sub-benefits">
+            <b>Built for independent coaches:</b> clear planning, client tracking
+            and billing-ready – without spreadsheets.
+          </p>
+
+          <div class="download-buttons">
+            <!-- TODO: replace with your real iOS / TestFlight link -->
+            <a
+              class="btn-store"
+              href="https://your-ios-link-here"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div>
+                <span class="small">Download on</span>
+                App Store / TestFlight
+              </div>
+            </a>
+
+            <!-- TODO: replace with your real Android APK link from Expo -->
+            <a
+              class="btn-store"
+              href="https://expo.dev/artifacts/eas/YOUR-ANDROID-APK-LINK.apk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div>
+                <span class="small">Download on</span>
+                Android (APK)
+              </div>
+            </a>
+          </div>
+
+          <div class="hint">
+            Beta access is free. You can already invite your own clients and test it
+            in real life.
+          </div>
         </div>
-      </a>
 
-      <!-- ANDROID APK LINK -->
-      <a href="https://expo.dev/artifacts/eas/YOUR-APK.apk" class="btn">
-        <div>
-          <span class="small">Download on</span><br>
-          Android (APK)
+        <!-- RIGHT SIDE : PHONE PREVIEW -->
+        <div class="right">
+          <div class="phone-frame">
+            <div class="phone-inner">
+              <!-- Mets ici ton screenshot (sans infos sensibles) -->
+              <img
+                src="phone-planning.png"
+                alt="Preview of SetYourCoaching app"
+              />
+            </div>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
 
-    <!-- Optional phone screenshot -->
-    <img src="https://github.com/thomaslabrd/landing.SetYourCoaching/blob/main/Capture%20d'%C3%A9cran%202025-11-18%20102506.png?raw=true" class="phone" alt="App preview">
-
     <footer>
-      © <span id="year"></span> SetYourCoaching — Independent coaches
+      © <span id="year"></span> SetYourCoaching — Independent coaches ·
+      <a href="/legal/mentions-legales.html">Legal notice</a> ·
+      <a href="/legal/politique-confidentialite.html">Privacy policy</a>
     </footer>
   </div>
 
